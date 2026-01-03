@@ -60,4 +60,40 @@ This exact pattern is used in:
 ---
 
 ## 📂 Project Structure
+src/
+│── App.js
+│
+├── pages/
+│ ├── Login.js // Public route
+│ ├── Dashboard.js // Protected route
+│ └── NotFound.js // 404 page
+│
+├── routes/
+│ └── ProtectedRoute.js
+│
+└── styles/
+└── auth.css
 
+
+---
+
+## 🧩 Key Concept: ProtectedRoute
+
+```js
+const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+if (!isLoggedIn) {
+  return <Navigate to="/login" replace />;
+}
+
+
+✔ If user is not logged in → redirect to login
+✔ If logged in → allow access
+
+🔑 Demo Login Credentials
+Email:    admin@gmail.com
+Password: 123456
+
+
+These are demo credentials only.
+In real apps, this logic is replaced by API or Firebase authentication.
